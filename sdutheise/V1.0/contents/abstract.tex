@@ -1,0 +1,45 @@
+% !Mode:: "TeX:UTF-8"
+\begin{cnabstract}
+
+锂电池健康状态(State of Health，SOH)是电池管理系统(Battery Management System,BMS)的关键参数，
+在电池管理系统中，电池健康状态可以有效的帮助预测电池的弱化状态与失效状态。
+精确预测锂电池的剩余寿命可以有效的保障电气化设备的稳定运行和安全可靠性。
+目前，绝大多数预测模型均基于神经网络模型进行预测，尽管在准确率上有优势但对于锂离子电池这一类复杂的非线性系统而言预测难度大，需要数据多，运算所需算力大，消耗时间长。
+在训练神经模型时往往需要大量依赖训练样本的数量与大量的算力。
+神经网络的性能又大多以训练样本的数量成强正相关关系，由于在实验室条件下获取电池老化数据需要相当长的时间和十分高昂的经济成本，
+基于现实情况下的时间与成本限制，性能往往受限于数据量的训练时间与训练数量。
+在本文中，提出了基于迁移成分分析的迁移学习模型，开展面向锂电池健康状况快速估计的研究，并将网络的大量运算在云上进行，
+有效的解决了快速性和经济性、鲁棒性在内的诸多痛点，并与BP模型的常规迁移学习方法进行了比较。主要工作内容如下：
+\begin{enumerate}
+
+    \item 针对常规电池预测神经网络数据需求大的缺点，对利用电池公开数据进行训练随后进行迁移的迁移学习神经网络进行研究，即BP神经网络。
+          但BP神经网络在进行迁移学习时仍然需要新电池的大量有标记数据才能对准确性有较为良好的估计
+          因此提出了基于不需要有标记数据的迁移成分分析方法，该方法可以实现快速高质量的特征分析。
+          利用皮尔森系数法对提取的特征进行评价，随后对源域的数据和特征矩阵进行学习，实现对目标域的迁移，
+          获取目标域数据后进行估计，完成无标签情况下的快速健康状态估计与剩余使用寿命的预测。
+    \item 针对电池模型数据中数据量大，浮点运算多等问题，若在本地平台进行则会消耗大量算力资源，增加消耗成本，同时也作为大量耗电的用电器。
+          在本文中提出了通过时间戳将目标域特征数据上传的方法，利用云平台的高效廉价算力进行预测，实现在前100循环的准确寿命预测。
+    
+\end{enumerate}
+
+本文在公开的MIT电池数据集上对算法进行了验证。结果表明在通过迁移成分分析处理后的数据相比于未进行迁移学习的数据在BP神经网络中进行神经网络训练，其百分比误差可以接近20%
+，平均绝对误差MAE可以小于35。对于在出厂时对电池大致容量进行估计有着较为优异的表现。
+
+
+\cnkeywords{锂电池；电池健康状态；SOH；迁移学习；迁移成分分析；云平台}
+
+\end{cnabstract}
+
+\begin{enabstract}
+
+      The State of Health (SOH) of lithium-ion batteries is a critical parameter for Battery Management Systems (BMS) and can effectively help predict the weakening and failure states of the battery. Accurately predicting the remaining lifespan of lithium-ion batteries can effectively guarantee the stable operation and safety reliability of electrified equipment. Currently, most prediction models are based on neural network models, which have advantages in accuracy but face difficulties in predicting complex nonlinear systems such as lithium-ion batteries due to the need for large amounts of data, computational power, and time. Training neural models often depends heavily on the number of training samples and computational power. The performance of neural networks is also strongly positively correlated with the number of training samples. However, obtaining battery aging data under laboratory conditions requires considerable time and extremely high economic costs. Therefore, performance is often limited by the training time and quantity of data under the constraints of time and cost in real-world situations. In this paper, a transfer learning model based on transfer component analysis is proposed to conduct research on the rapid estimation of lithium battery health, and a large number of network computations are carried out in the cloud to effectively solve many pain points, including rapidity, economy, and robustness. The performance of the proposed method is compared with the conventional transfer learning method of BP models. The main work is as follows:
+
+      1. In response to the disadvantage of the high data requirements of conventional battery prediction neural networks, transfer learning neural networks that use publicly available battery data for training and subsequent transfer are studied, namely BP neural networks. However, the BP neural network still requires a large amount of labeled data from new batteries to obtain good estimates of accuracy during transfer learning. Therefore, a transfer component analysis method that does not require labeled data is proposed, which can achieve fast and high-quality feature analysis. The extracted features are evaluated using the Pearson correlation coefficient, and then the source domain data and feature matrix are learned to achieve transfer to the target domain. After obtaining the target domain data, rapid health status estimation and remaining lifespan prediction can be completed without labeled data.
+      
+      2. In response to the problems of large amounts of data in battery model data and many floating-point operations, local platforms consume a large amount of computational resources, increase consumption costs, and also act as a large power-consuming appliance. In this paper, a method is proposed to upload the target domain feature data through a timestamp and use the efficient and inexpensive computational power of the cloud platform to make predictions, achieving accurate lifespan prediction within the first 100 cycles.
+      
+      The algorithm is validated on the publicly available MIT battery dataset in this paper, and the results show that the proposed method has significant advantages.
+
+\enkeywords{Lithium-ion battery; Battery Health Status; SOH; Transfer Learning; Transfer Component Analysis}
+
+\end{enabstract}

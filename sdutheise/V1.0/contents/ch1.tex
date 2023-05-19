@@ -1,0 +1,101 @@
+% !Mode:: "TeX:UTF-8"
+
+\chapter{使用简介}
+\echapter{Introduction}
+
+\section{章节的修改和添加}
+你可通过"chapter{}"和"\textbackslash echapter{}"来添加章节题目，并在SDUthesistemplate.tex文件的正文部分中启用。
+通过这种方式，你可以灵活的修改章节，但请记住，务必去掉tex文件中注释的章节，否则会影响生成。
+
+\section{摘要、致谢、附录和引用}
+你可以在\textbackslash contents\textbackslash abstract.tex中编辑中英文摘要的相关内容。
+
+你可以在\textbackslash contents\textbackslash acknowledgment.tex中编辑致谢内容。
+
+你可以在\textbackslash contents\textbackslash appendix中编辑附录内容，如果你需要多个附录，可以在SDUthesistemplate.tex文件的附录部分
+\textbackslash appendix进行\textbackslash input其他内容。
+如果你需要在附录中附注核心代码内容，你可以直接查看当前appendix.tex中的内容并进行修改。
+
+你可以在\textbackslash contents\textbackslash reference.bib中添加引用文献，请注意，在bib文件中的引用格式应使用bibtex格式，你可以在google scholar或
+期刊文献出版社页面找到。
+如果需要引用，请参考以下代码\cite{phattharasupakun2020impact}
+
+\section{表格和图片的插入}
+如果你需要插入表格，你可以使用https://www.tablesgenerator.com/该网站进行表格的预绘制，随后直接粘贴进入tex文件。
+
+以下或许是一个可供你参考的样例
+\begin{table}[htbp]
+    \centering
+\begin{tabular}{|p{3em} p{18em} p{3em} p{8em}|}
+    \hline
+    你 & 好 & 欢 & 迎\\ \hline
+    你 & 使 & 用 & \LaTeX \\
+    \hline
+\end{tabular}
+    \caption{注释表}
+\end{table}
+
+如果你要插入图片，单张图片插入你可以使用
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/DECAF1.jpg}
+    \caption{样例1}
+\end{figure}
+如果你要并列插入两张图片，你可以使用
+\begin{figure}[htbp]
+    \centering
+    \subfloat[样例2.1]{\includegraphics[width=0.4\textwidth]{figures/fig11.png}}
+    ~~
+    \subfloat[样例2.2]{\includegraphics[width=0.4\textwidth]{figures/fig12.png}}
+    \caption{样例2}
+    \label{thisiisalabel}
+\end{figure}
+
+如果你需要一个公式，你可以使用
+\begin{equation}
+    SOH=\frac{C_{CUR}}{C_{RATED}}\time 100\%
+\end{equation}
+或是$\pi$ 或是$$SOH=\frac{C_{CUR}}{C_{RATED}}\time 100\%$$
+对于双\$的公式，他不会产生标号。
+
+\begin{equation}
+    K=
+    \left[
+    \begin{array}{c c c}
+        K_{s,s} & K_{s,t} \\
+        K_{t,s} & K_{t,t} \\
+    \end{array}
+    \right]
+\end{equation}
+
+\begin{equation}
+    \frac{\partial z^{(k)}}{\partial W^{(k)}}=
+    \left[
+        \begin{array}{c}
+            \frac{\partial(\mathcal{W}_1(k)*n(k-1)+b(k))}{\partial W(k)} \\
+            \dots \\
+            \dots \\
+            \dots \\
+            \frac{\partial(\mathcal{W}_m(k)*n(k-1)+b(k))}{\partial W(k)} \\
+        \end{array}
+    \right]
+\end{equation}
+
+如果你需要进行举例，你可以使用：
+\begin{enumerate}
+    \item \textbf{我是1}
+    
+    你好1
+    \item \textbf{我是2}
+    
+    你好2
+    \item \textbf{我是3}
+    
+    你好3
+\end{enumerate}
+
+如果你在生成pdf的时候遇到了出现空白页的情况，请不要担心，这是由于默认双页的原因，你可以插入下列代码
+\let\cleardoublepage\clearpage
+
+对了，当你需要编译时，如果希望快速可以使用xelatex进行编译，因此我也建议你如果在VScode环境下使用，可以设置xelatex为首选项。
+但此时编译的结果没有引文标号，如果你需要完整编译，呈现出引文标号时，你可以使用pdf->bib-pdf->pdf的方法编译。

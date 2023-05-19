@@ -1,0 +1,19 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
+
+\bibitem[Phattharasupakun et~al.(2020)Phattharasupakun, Geng, Johnson, V{\"a}li, Sawangphruk, and Dahn]{phattharasupakun2020impact}
+PHATTHARASUPAKUN N, GENG C, JOHNSON M~B, et~al.
+\newblock Impact of cr doping on the voltage fade of li-rich mn-rich li1. 11ni0. 33mn0. 56o2 and li1. 2ni0. 2mn0. 6o2 positive electrode materials\allowbreak[J].
+\newblock Journal of The Electrochemical Society, 2020, 167\allowbreak (16): 160545.
+
+\end{thebibliography}
